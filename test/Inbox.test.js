@@ -18,27 +18,27 @@ class Car {
     }
 }
 
-let car;
-
 beforeEach(() => {
-    
-    car = new Car();
+    // get a list of accounts(just for sending and reciving ether)
 
-}) ;        // will be executed before every it statement
+    //web3 functions are asynchronous in nature
 
-describe('Car',() => {
+    web3.eth.getAccounts()
+        .then(fetchedAccounts => {
 
-    // one or more it statement
+            console.log(fetchedAccounts);
+        });
 
-    it('park should have a function', () => {
+        // use one of those accounts to deploy the contracts
 
-        assert.equal(car.park(), 'stopped');
 
-    });
-
-    it('can drive', () => {
-
-        assert.equal(car.drive(), 'vroom');
-
-    });
 });
+
+// making each contracts
+describe('Inbox', () => {
+
+    it('deploys a contract', () => {
+
+
+    });
+})
