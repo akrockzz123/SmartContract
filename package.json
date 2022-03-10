@@ -13,6 +13,7 @@
     "mocha": "^9.2.1",
     "save": "^2.4.0",
     "solc": "^0.4.17",
+    "truffle-hdwallet-provider": "^1.0.17",
     "web3": "^1.7.1"
   }
 }
