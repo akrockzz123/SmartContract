@@ -47,4 +47,16 @@ describe('Inbox', () => {
          assert.equal(message,'Hi there');
 
     });
+
+    // changing the message
+
+    it('can change the message',async () => {
+
+        //send transaction who is paying gas for the transaction gnash test accounts
+        await inbox.methods.setMessage('bye there').send({ from : accounts[0] });
+
+        const message = await inbox.methods.message().call(); // calling the message function from returned javascript rep of contract
+
+        assert.equal(message,'bye there');
+    });
 })
