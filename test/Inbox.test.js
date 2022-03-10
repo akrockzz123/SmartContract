@@ -23,7 +23,7 @@ beforeEach(async () => {
       
 
         // use one of those accounts to deploy the contracts
-        // changing value of contract consumes gas
+        // changing value of contract consumes gas //Contract(ABI)
         inbox = await new web3.eth.Contract(JSON.parse(interface))
               .deploy({ data: bytecode, arguments: ['Hi there']})
               .send({ from : accounts[0], gas: '1000000'})
@@ -34,7 +34,17 @@ describe('Inbox', () => {
 
     it('deploys a contract', () => {
 
-        console.log(inbox);
+        assert.ok(inbox.options.address);
+
+    });
+
+    // calling a method in inbox contract
+
+    it('has a default message', async () => {
+
+         const message = await inbox.methods.message().call(); // calling the message function from returned javascript rep of contract
+
+         assert.equal(message,'Hi there');
 
     });
 })
