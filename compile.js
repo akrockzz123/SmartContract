@@ -7,13 +7,13 @@ const fs = require('fs');
 const solc = require('solc'); // requiring solc compiler
 
 
-const inboxPath = path.resolve(__dirname,'contracts','Inbox.sol');
+const LotteryPath = path.resolve(__dirname,'contracts','Lottery.sol');
 
-const source = fs.readFileSync(inboxPath,'utf8');
+const source = fs.readFileSync(LotteryPath,'utf8');
 
 //console.log(solc.compile(source,1));
 
-module.exports = solc.compile(source,1).contracts[':Inbox'];
+module.exports = solc.compile(source,1).contracts[':Lottery'];
 
 
 
